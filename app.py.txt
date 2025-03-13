@@ -1,0 +1,16 @@
+from flask import Flask, request
+
+app = Flask(__name__)
+
+VERIFY_TOKEN = "02_08_2005"
+
+@app.route('/webhook', methods=['GET'])
+def verify():
+    """Xác minh webhook với Facebook."""
+    token_sent = request.args.get("hub.verify_token")
+    if token_sent == VERIFY_TOKEN:
+        return request.args.get("hub.challenge")
+    return "Verification token mismatch", 403
+
+if __name__ == "__main__":
+    app.run(port=5000, debug=True)
