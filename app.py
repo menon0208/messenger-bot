@@ -45,7 +45,12 @@ def send_message(recipient_id, message_text):
         print("Lỗi khi gửi tin nhắn:", response.json())
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
-
+    app.run(host="0.0.0.0", port=10000, debug=True)
+@app.route('/')
+def home():
+    return "Hello from Flask on Render!"
+@app.route('/')
+def home():
+    return "Hello! Flask app is running."
 
 

@@ -2,3 +2,7 @@
 *.zip
 *.rar
 *.mp4
+git add requirements.txt
+git commit -m "Fix .gitignore and add requirements.txt"
+git push origin main
+
